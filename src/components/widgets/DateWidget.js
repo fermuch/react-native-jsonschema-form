@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View, TouchableOpacity, I18nManager,Image } from 'react-native'
-import {default as DropIcon} from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment'
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+// import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import { Calendar } from 'react-native-calendars'
 import ReactModal from 'react-native-modal';
 import _ from 'lodash'
@@ -50,9 +49,9 @@ class DateWidget extends React.Component {
     let possibleDates = {}
     let startDay = today
     let endDate = today
-   
+
     props.options.enumOptions.forEach((options) => {
-     
+
       let date = moment(options.value).startOf('day')
 
       if(date >= today && (startDay === null || date <= startDay)){
@@ -79,7 +78,7 @@ class DateWidget extends React.Component {
         dates[key] = value
       });
 
-    
+
     const intial ={dates,startDay,endDate}
 
    return intial
@@ -92,7 +91,7 @@ class DateWidget extends React.Component {
   }
 
   onPressDay(date) {
-    let myDates = _.cloneDeep(this.state.possibleDates) 
+    let myDates = _.cloneDeep(this.state.possibleDates)
     if(this.state.calanderSelection){
       myDates[this.state.calanderSelection].selected = false
     }
@@ -112,29 +111,30 @@ class DateWidget extends React.Component {
   }
 
   renderArrow(direction) {
-    if (I18nManager.isRTL) {
-      switch (direction) {
-        case 'left':
-          direction = 'right'
-          break;
-        case 'right':
-          direction = 'left'
-          break;
-      }
-    }
-    return (
-      <Icon
-        name={`arrow-${direction}`}
-        color={'#6DA1B7'}
-        size={18}
-      />
-    )
+    return null
+    // if (I18nManager.isRTL) {
+    //   switch (direction) {
+    //     case 'left':
+    //       direction = 'right'
+    //       break;
+    //     case 'right':
+    //       direction = 'left'
+    //       break;
+    //   }
+    // }
+    // return (
+    //   <Icon
+    //     name={`arrow-${direction}`}
+    //     color={'#6DA1B7'}
+    //     size={18}
+    //   />
+    // )
   }
 
   renderWidgetButton() {
     return (
       <TouchableOpacity style={[styles.content,this.widgetStyle('content')]} onPress={() => this.toggleCalendar()}>
-      {this.state.dateSelected ? 
+      {this.state.dateSelected ?
         <Text style={[styles.dropText,this.widgetStyle('dropText')]} >{this.state.dateSelected}</Text> :
         <Text style={[styles.dropText,this.widgetStyle('placeholderdropText')]} >{this.props.schema.placeHolder}</Text>
       }

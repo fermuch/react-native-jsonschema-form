@@ -214,8 +214,11 @@ export default class Form extends Component {
       acceptcharset,
       noHtml5Validate,
       disabled,
-      submitTitle
+      submitTitle,
+      button: ButtonProp
     } = this.props;
+
+    const button = ButtonProp ? <ButtonProp label={submitTitle} onPress={(formData) => this.onSubmit(formData)}/> : null;
 
     const { schema, uiSchema, styleSheet,formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
@@ -253,10 +256,7 @@ export default class Form extends Component {
           safeRenderCompletion={safeRenderCompletion}
           disabled={disabled}
         />
-        {children ? (
-          children
-        ) : (
-            // <Button  title="Submit Request" onPress={()=>{}}/>
+        {children || button || (
             <TouchableOpacity
             style={styles.buttonContainer}
             activeOpacity={0.85}
@@ -319,5 +319,6 @@ if (process.env.NODE_ENV !== "production") {
     transformErrors: PropTypes.func,
     safeRenderCompletion: PropTypes.bool,
     formContext: PropTypes.object,
+    button: PropTypes.func
   };
 }

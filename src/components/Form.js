@@ -313,6 +313,6 @@ if (process.env.NODE_ENV !== "production") {
     transformErrors: PropTypes.func,
     safeRenderCompletion: PropTypes.bool,
     formContext: PropTypes.object,
-    button: PropTypes.func
+    button: PropTypes.elementType
   };
 }

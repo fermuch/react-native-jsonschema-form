@@ -4,7 +4,10 @@ const ajv = new Ajv({
   errorDataPath: "property",
   allErrors: true,
   multipleOfPrecision: 8,
+  jsonPointers: true
 });
+// add error messages
+require('ajv-errors')(ajv);
 // add custom formats
 ajv.addFormat(
   "data-url",

@@ -133,7 +133,7 @@ function transformAjvErrors(errors = []) {
 
   return errors.map(e => {
     const { dataPath, keyword, message, params } = e;
-    let property = `${dataPath}`;
+    let property = `${dataPath.replace(/\//g, ".")}`;
 
     // put data in expected format
     return {

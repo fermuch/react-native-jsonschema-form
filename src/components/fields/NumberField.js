@@ -9,6 +9,7 @@ function NumberField(props) {
     <StringField
       {...props}
       onChange={value => props.onChange(asNumber(value))}
+      keyboardType="number-pad"
     />
   );
 }

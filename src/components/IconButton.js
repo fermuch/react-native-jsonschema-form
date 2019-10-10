@@ -6,7 +6,8 @@ export default function IconButton(props) {
   const { type = "default", icon, className, ...otherProps } = props;
   return (
     <Button
-    title={'icon button'}
+      title={icon}
+      onPress={otherProps.onClick}
       // type="button"
       // className={`btn btn-${type} ${className}`}
       {...otherProps}>

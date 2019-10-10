@@ -63,7 +63,7 @@ function DefaultArrayItem(props) {
             }}>
             {(props.hasMoveUp || props.hasMoveDown) && (
               <IconButton
-                icon="arrow-up"
+                icon="⬆️"
                 className="array-item-move-up"
                 tabIndex="-1"
                 style={btnStyle}
@@ -74,7 +74,7 @@ function DefaultArrayItem(props) {
 
             {(props.hasMoveUp || props.hasMoveDown) && (
               <IconButton
-                icon="arrow-down"
+                icon="⬇️"
                 className="array-item-move-down"
                 tabIndex="-1"
                 style={btnStyle}
@@ -88,7 +88,7 @@ function DefaultArrayItem(props) {
             {props.hasRemove && (
               <IconButton
                 type="danger"
-                icon="remove"
+                icon="➖"
                 className="array-item-remove"
                 tabIndex="-1"
                 style={btnStyle}
@@ -261,7 +261,7 @@ class ArrayField extends Component {
     return event => {
       if (event) {
         event.preventDefault();
-        event.target.blur();
+        // event.target.blur();
       }
       const { formData, onChange } = this.props;
       let newErrorSchema;

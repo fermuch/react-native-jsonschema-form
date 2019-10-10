@@ -7,7 +7,7 @@ export default function AddButton({ className, onClick, disabled }) {
     <View className="row">
         <IconButton
           type="info"
-          icon="plus"
+          icon="➕"
           // className="btn-add col-xs-12"
           tabIndex="0"
           onClick={onClick}
